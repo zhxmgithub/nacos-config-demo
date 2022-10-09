@@ -1,0 +1,66 @@
+#nacos配置
+nacos:
+  config:
+    bootstrap:
+      enable: true
+      log-enable: true
+    server-addr: 127.0.0.1:8848
+    group: nacos-config-demo
+    data-id: nacos-config-demo
+    auto-refresh: true
+    type: yaml
+
+spring:
+  application:
+    name: spring-boot-nacos
+
+server:
+  port: 8080
+
+#配置
+#xiaom:
+#  config:
+#    id: aaaaaaaa
+#    name: xiaomanConfig
+#    count: 10
+#  nacos:
+#    id: bbbbbb
+#    name: xiaomanNacosConfig
+#    count: 20
+
+
+#redis 集群模式配置（redisson14.0版本以上）会因为阿里云用了代理不支持Wait命令而报错
+#spring:
+#  redis:
+#    redisson:
+#      config: |
+#        clusterServersConfig:
+#          idleConnectionTimeout: 10000
+#          connectTimeout: 10000
+#          timeout: 3000
+#          retryAttempts: 3
+#          retryInterval: 1500
+#          failedSlaveReconnectionInterval: 3000
+#          failedSlaveCheckInterval: 60000
+#          password: xxxxxxx
+#          subscriptionsPerConnection: 5
+#          clientName: null
+#          loadBalancer: !<org.redisson.connection.balancer.RoundRobinLoadBalancer> { }
+#          subscriptionConnectionMinimumIdleSize: 1
+#          subscriptionConnectionPoolSize: 50
+#          slaveConnectionMinimumIdleSize: 24
+#          slaveConnectionPoolSize: 64
+#          masterConnectionMinimumIdleSize: 24
+#          masterConnectionPoolSize: 64
+#          readMode: "SLAVE"
+#          subscriptionMode: "SLAVE"
+#          nodeAddresses:
+#          - "redis://127.0.0.1:6379"
+#          scanInterval: 1000
+#          pingConnectionInterval: 0
+#          keepAlive: false
+#          tcpNoDelay: false
+#        threads: 16
+#        nettyThreads: 32
+#        codec: !<org.redisson.codec.JsonJacksonCodec> { }
+#        transportMode: "NIO"

@@ -1,0 +1,18 @@
+#data-id默认组成格式：${prefix}-${spring.profiles.active}.${file-extension}
+#nacos很多配置只能在bootstrap当中生效,这样无法通过profiles.active的配置切换多套nacos配置中心
+spring:
+  application:
+    name: nacos-config-demo
+  profiles:
+    active: dev,dev2
+  cloud:
+    nacos:
+      config:
+        enabled: true
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        group: nacos-config-demo
+        refresh-enabled: true #自动刷新默认开启，可以关闭。 @RefreshScope?
+
+server:
+  port: 8080
